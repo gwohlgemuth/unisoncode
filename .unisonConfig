@@ -1,0 +1,44 @@
+# I version my full namespace tree here, it's a snapshot
+# of all my current workstreams. If I need to switch
+# computers, I might just push here, then pull on the
+# other computer.
+# `.> push` will go here.
+GitUrl = "git@github.com:gwohlgemuth/unisoncode"
+
+GitUrl {
+
+  # Some projects I occasionally make PRs against.
+  # Example: from UCM, `._base> pull` will get latest trunk
+
+  _base = "git@github.com:unisonweb/base:.trunk"
+  _distributed = "git@github.com:unisonweb/distributed:.trunk"
+
+  # I help maintain these projects, so I track the full tree.
+  # This makes it easy to create, review and merge pull requests.
+  # Example: from UCM, `._json> pull` will get latest full dev tree
+
+  ###_json = "git@github.com:myuser/json.git"  # '.git' is optional!
+  ###_httpclient = "git@github.com:myorg/unison-httpclient"
+  ###_project1 = "git@github.com:myorg/coolproject"
+
+  # This is just a "pastebin" project I sometimes use for
+  # quickly sharing code. I don't keep it organized at all!
+  # Example: from UCM, `.scratch> push` will push here
+
+  scratch = "git@github.com:gwohlgemuth/unison-gists"
+
+  # Another example with a nested namespace
+
+  ###ns3.example.foo = "git@github.com:someorganization/thing"
+}
+
+# Attach myself as author and use MIT license.
+DefaultMetadata = [ ".prs.base._mybase.metadata.authors.gwohlgemuth"
+                  , ".prs.base._mybase.metadata.licenses.gwohlgemuth_mit_2020" ]
+
+# If I needed to pick a different license for a sub-namespace
+# I'd remove license from the root and add a license here instead
+# DefaultMetadata {
+#  _project1 = ["._project1._trunk.metadata.licenses.myself_bsd3_2020"]
+#  org.example.foo = ["._project1._trunk.metadata.licenses.myself_apache2_2020"]
+# }
